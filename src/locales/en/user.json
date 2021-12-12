@@ -1,3 +1,6 @@
 {
-    "placeholder": "Enter user id here"
+    "placeholder": "Enter user id here",
+    "error": {
+        "input": "You must input only digit"
+    }
 }

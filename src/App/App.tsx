@@ -6,9 +6,11 @@ import '../locales/config';
 
 const App = () => {
   return (
-    <IoCProvider container={container}>
-      <HomePage/>
-    </IoCProvider>
+    <React.StrictMode>
+      <IoCProvider container={container}>
+        <HomePage/>
+      </IoCProvider>
+    </React.StrictMode>
   )
 }
 

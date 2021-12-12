@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { injectable } from 'inversify';
+import i18n from "../locales/config"
 
 export interface HttpService {
     send<T>(url: string, methodType: MethodType, headers?: ApiHeader, data?: any) : Promise<ApiResponse<T>>;
@@ -58,7 +59,7 @@ export default class DefaultHttpService implements HttpService {
     private async handleResponse<T>(response: Response) : Promise<ApiResponse<T>> {
         if (!response.ok) {
           const message = await response.json()
-          throw Error(message.error || 'Request error')
+          throw Error(message.error || i18n.t('app:error.unknown'))
         }
         const result: ApiResponse<T>  = {
             ...response,

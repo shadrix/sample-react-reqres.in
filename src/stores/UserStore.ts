@@ -3,6 +3,7 @@ import { action, makeObservable, observable, runInAction } from "mobx";
 import ownTypes from "../ioc/ownTypes";
 import type { User } from "../models/User";
 import type UserService from "../services/UserService";
+import i18n from "../locales/config"
 
 @injectable()
 export default class UserStore {
@@ -26,7 +27,7 @@ export default class UserStore {
             const id = Number(this.queryString);
             if (id === NaN) {
                 this.queryString = '';
-                this.error = 'You must input only digit';
+                this.error = i18n.t('user:error.input');
                 return;
             }
             const result = await this.userService.getById(id);
