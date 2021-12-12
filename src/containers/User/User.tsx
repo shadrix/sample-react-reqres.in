@@ -5,9 +5,11 @@ import { observer } from 'mobx-react'
 import { useInjection } from '../../ioc/ioc.react'
 import UserStore from '../../stores/UserStore'
 import UserCard from '../../components/UserCard'
+import { useTranslation } from 'react-i18next';
 
 const User = observer(() => {
   const store = useInjection<UserStore>(ownTypes.userStore);
+  const { t } = useTranslation(['user']);
 
   return (
     <Container>
@@ -19,7 +21,7 @@ const User = observer(() => {
               value={store.queryString}
               onChange={(ev)=> {store.changeQueryString(ev.target.value)}}
               isInvalid={!!store.error}
-              placeholder="Enter userID here"
+              placeholder={t('placeholder')}
             />
             <Button
               disabled={!store.queryString}
