@@ -42,7 +42,7 @@ const Login = observer(() => {
               {store.isLoading ? (
                 <Spinner animation="border" size="sm" />
               ) : (
-                'Submit'
+                `${t('submit')}`
               )}
             </Button>
             {!!store.token && (

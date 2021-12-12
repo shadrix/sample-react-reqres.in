@@ -32,7 +32,7 @@ const User = observer(() => {
               {store.isLoading ? (
                 <Spinner animation="border" size="sm" />
               ) : (
-                'Submit'
+                `${t('submit')}`
               )}
             </Button>
           </InputGroup>
